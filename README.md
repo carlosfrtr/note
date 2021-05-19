@@ -17,6 +17,5 @@ This is a simple text editor, auto-save, just use a URL. It uses Python 3, Nginx
 $ git clone https://github.com/carlos-ft/note.git
 $ cd note
 $ docker-compose build
-$ docker-compose run note-nginx note-python note-redis
 $ docker-compose up
 ```
