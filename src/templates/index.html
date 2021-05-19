@@ -1,17 +1,25 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-{% block content %}
-    <center>
-        <h1>Simple text editor, auto-save, just use a URL.</h1>
-        <div>
-            <span id="location"></span>
-            <input id="url">
-            <button type="button" onclick="window.location='/'+ document.getElementById('url').value;">GO!</button>
-        </div>
+    <head>
+        <meta charset="utf-8">
+        <title>Note</title>
+    </head>
 
-        <script>
-            document.getElementById("location").innerHTML = window.location.href;
-        </script>
+    <body>
+        <center>
+            <h1>Simple text editor, auto-save, just use a URL.</h1>
+            <div>
+                <span id="location"></span>
+                <input id="url">
+                <button type="button" onclick="window.location='/'+ document.getElementById('url').value;">GO!</button>
+            </div>
 
-    </center>
-{% endblock %}
+            <script>
+                document.getElementById("location").innerHTML = window.location.href;
+            </script>
+
+        </center>
+    </body>
+
+</html>

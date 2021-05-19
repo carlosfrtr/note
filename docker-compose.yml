@@ -25,19 +25,6 @@ services:
     depends_on:
       - note-redis
 
-  note-python1:
-    image: note-python
-    build: ./src
-    container_name: note-python-1
-    ports:
-      - "5000"
-    env_file:
-      - ./.env.dev
-    networks: 
-      - main-network
-    depends_on:
-      - note-redis
-
   note-nginx:
     image: nginx:1.20.0
     container_name: note-nginx
@@ -45,11 +32,11 @@ services:
     ports:
       - 443:443
       - 80:80
+      - 81:81
     networks: 
       - main-network
     depends_on:
       - note-python0
-      - note-python1
 
 volumes:
   redis_data:

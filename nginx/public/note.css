@@ -1,0 +1,11 @@
+#note {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    border: 0px;
+    text-align: justify;
+}
+
+#note:focus {
+    outline: none;
+}
