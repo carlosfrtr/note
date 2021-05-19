@@ -31,4 +31,4 @@ def update(url):
     if request.method == 'PUT' or request.method == 'POST':
         return jsonify({'note': note})
     if request.method == 'GET':
-        return render_template('note.html', note=note)
+        return render_template('note.html', note=note, resource=(request.host+":81"))
