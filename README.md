@@ -2,7 +2,7 @@
 
 This is a simple text editor, auto-save, just use a URL. It uses Python 3, Nginx, HTML, JS and Redis.
 
-[Try it!](http://note.rhavena.com){:target="_blank" rel="noopener"}
+[Try it!](http://note.rhavena.com)
 
 <h3>Docker Installation</h3>
 <h4>
