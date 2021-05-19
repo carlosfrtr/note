@@ -1,0 +1,59 @@
+version: '3.9'
+
+services:
+  note-redis:
+    image: redis:6.2
+    container_name: note-redis
+    command: redis-server
+    volumes:
+      - redis_data:/data
+    ports:
+      - "6379:6379"
+    networks: 
+      - main-network
+
+  note-python0:
+    image: note-python
+    build: ./src
+    container_name: note-python-0
+    ports:
+      - "5000"
+    env_file:
+      - ./.env.dev
+    networks: 
+      - main-network
+    depends_on:
+      - note-redis
+
+  note-python1:
+    image: note-python
+    build: ./src
+    container_name: note-python-1
+    ports:
+      - "5000"
+    env_file:
+      - ./.env.dev
+    networks: 
+      - main-network
+    depends_on:
+      - note-redis
+
+  note-nginx:
+    image: nginx:1.20.0
+    container_name: note-nginx
+    build: ./nginx
+    ports:
+      - 443:443
+      - 80:80
+    networks: 
+      - main-network
+    depends_on:
+      - note-python0
+      - note-python1
+
+volumes:
+  redis_data:
+
+networks: 
+  main-network:
+    driver: bridge

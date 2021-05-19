@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <center>
+        <h1>Simple text editor, auto-save, just use a URL.</h1>
+        <div>
+            <span id="location"></span>
+            <input id="url">
+            <button type="button" onclick="window.location='/'+ document.getElementById('url').value;">GO!</button>
+        </div>
+
+        <script>
+            document.getElementById("location").innerHTML = window.location.href;
+        </script>
+
+    </center>
+{% endblock %}
