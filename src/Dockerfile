@@ -8,11 +8,13 @@ WORKDIR /usr/src/note
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# copy project
-COPY . /usr/src/note
+COPY requirements.txt .
 
 # install dependencies
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
+
+# copy project
+COPY . /usr/src/note
 
 CMD ["gunicorn", "-b", "0.0.0.0:5000", "-w=3", "wsgi:app"]

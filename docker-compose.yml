@@ -15,11 +15,9 @@ services:
   note-python0:
     image: note-python
     build: ./src
-    container_name: note-python-0
+    container_name: note-python
     ports:
       - "5000"
-    env_file:
-      - ./.env.dev
     networks: 
       - main-network
     depends_on:
